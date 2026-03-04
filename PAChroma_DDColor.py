@@ -1512,8 +1512,6 @@ def to_3ch(x):
 def normalize_for_lpips(x):
     return x * 2 - 1  # convert from [0, 1] → [-1, 1]
 
-
-    
     # Convert HWC numpy image [0,1] → PyTorch tensor [1, 3, H, W]
 def to_tensor_batch(np_img):
     tensor = TF.to_tensor(np_img).unsqueeze(0)  # [1, 3, H, W]
@@ -1639,10 +1637,6 @@ def visualize_transferability(
         evaluate=True,
         crop_params=crop_params
     )
-
-
-##########################3##############
-    
 
     # Plot
     plt.figure(figsize=(20, 5))
@@ -1783,7 +1777,7 @@ for seed in seeds:
         rrc_img.squeeze(0), scale=(0.8, 1.0), ratio = (3/4, 4/3)
     )
     
-    ################################## PAChroma ###############################################################################################
+    ############################# PAChroma ############################
 
     for num_epochs in num_epoch_list:
             
