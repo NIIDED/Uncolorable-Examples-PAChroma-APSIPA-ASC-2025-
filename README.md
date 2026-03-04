@@ -13,6 +13,45 @@ PAChroma defends against **unauthorized automatic image colorization** by genera
 ![PAChroma overview](images/teaser.png)
 
 
+
+## Verified Environment
+- OS: Ubuntu 24.04.4 LTS (noble)
+- Python: 3.10.14
+- PyTorch: 2.5.1 (CUDA 12.1 build)
+- CUDA (driver): 12.8
+- GPU: NVIDIA A100 40GB
+
+> Repro tip: we also provide `environment.yml` (conda) and `requirements.txt` (pip) in this repo.
+
+---
+
+## Installation
+
+### Option A: Conda (recommended)
+```bash
+conda env create -f environment.yml
+conda activate UncolorableExample
+```
+### Option A: Conda (recommended)
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -U pip
+pip install -r requirements.txt
+```
+
+## Setup a colorization model (ex : DDColor)
+From the repo root:
+```bash
+git clone https://github.com/piddnad/DDColor.git DDColor
+```
+
+## Quick Start
+```bash
+python PAChroma_DDColor.py --seed 100 --eps_size 16
+```
+### note: eps_size=16 corresponds to an L∞ budget of 16/255.
+
 ## Citation
 ```bibtex
 @inproceedings{nii2025pachroma,
@@ -21,3 +60,6 @@ PAChroma defends against **unauthorized automatic image colorization** by genera
   booktitle = {APSIPA Annual Summit and Conference (APSIPA ASC)},
   year      = {2025}
 }
+```
+
+
